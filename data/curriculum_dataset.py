@@ -4,6 +4,7 @@ from tqdm import tqdm
 import numpy as np
 from typing import List
 from argparse import ArgumentParser, Namespace
+import shutil
 
 
 def transfer_datapoints(dest_dataset_loc: str, source_path: str, data_points: List[str]) -> None:

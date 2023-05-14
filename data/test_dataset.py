@@ -7,6 +7,7 @@ import torch
 
 
 class TestDataset(Dataset):
+    """Dataset object for test condition (not for eval)"""
     def __init__(self, ds_path, frame_transform, video_transform, num_frames: int = 16, test: bool = False, step_size: int = 1):
         self.test = test
         self.frame_transform = frame_transform
@@ -22,6 +23,9 @@ class TestDataset(Dataset):
         return len(self.videos)
     
     def __getitem__(self, idx):
+        """
+        Given the sample index, retrieve all video frames and the text label describing the class.
+        """
         video = self.videos[idx]
         
         key = path.relpath(video, self.ds_path)
